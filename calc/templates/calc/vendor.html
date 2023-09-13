@@ -1,0 +1,195 @@
+{% extends 'calc/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+
+        
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">blog full 3 col</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- blog main wrapper start -->
+        <div class="blog-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <div class="blog-meta">
+                            <span class="posted-author">We have {{ vendors.count }} Products</span>
+                            
+                        </div><br/><br/>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="blog-wrapper-inner">
+                            <div class="row">
+                                <!-- start single blog item -->
+                                {% for v in vendors %}
+                                <div class="col-lg-4 col-md-6">
+                                    <div class="blog-item mb-26">
+                                        <div class="blog-thumb img-full fix">
+                                            <a href="{% url 'vendor-detail' v.vid %}">
+                                                <img src="{{ v.image.url }}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <h3><a href="{% url 'vendor-detail' v.vid %}">{{ v.title }}</a></h3>
+                                            <div class="blog-meta">
+                                                <span class="posted-author">{{ v.product.all.count }}Products</span>
+                                                <span class="post-date">{{ v.date|date:"Y"}}</span>
+                                            </div>
+                                            <p>{{ v.description }}</p>
+                                        </div>
+                                        <a href="{% url 'vendor-detail' v.vid %}">read more <i class="fa fa-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <!-- end single blog item -->
+                               
+                            </div>
+                        </div>
+                        <!-- start pagination area -->
+                        <div class="paginatoin-area text-center pt-30 pb-30">
+                            <div class="row">
+                                <div class="col-12">
+                                    <ul class="pagination-box">
+                                        <li><a class="Previous" href="#">Previous</a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a class="Next" href="#"> Next </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end pagination area -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog main wrapper end -->
+
+        <!-- brand area start -->
+        <div class="brand-area pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title mb-30">
+                            <div class="title-icon">
+                                <i class="fa fa-crop"></i>
+                            </div>
+                            <h3>Popular Brand</h3>
+                        </div> <!-- section title end -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="brand-active slick-padding slick-arrow-style">
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br1.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br2.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br3.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br5.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br6.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand area end -->
+
+       
+
+    </div>
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+{% endblock %}

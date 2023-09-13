@@ -1,0 +1,331 @@
+{% extends 'calc/base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+
+        
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">blog details</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- blog main wrapper start -->
+        <div class="blog-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 order-2">
+                        <div class="blog-sidebar-wrapper mt-md-34 mt-sm-30">
+                            <div class="blog-sidebar mb-30">
+                                <div class="sidebar-serch-form">
+                                    <form action="#">
+                                        <input type="text" class="search-field" placeholder="search here">
+                                        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div> <!-- single sidebar end -->
+                            <div class="blog-sidebar mb-24">
+                                <h4 class="title mb-20">categories</h4>
+                                <ul class="blog-archive">
+                                    {% for c in categories %}
+                                    <li><a href="#">{{ c.title}} ({{ c.category.all.count }})</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div> <!-- single sidebar end -->
+                            
+                            <div class="blog-sidebar mb-24">
+                                <h4 class="title mb-30">recent post</h4>
+                                <div class="recent-post mb-20">
+                                    <div class="recent-post-thumb">
+                                        <a href="blog-details.html">
+                                            <img src="assets/img/product/product-img1.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="recent-post-des">
+                                        <span><a href="blog-details.html">first blog post</a></span>
+                                        <span class="post-date">28.10.2018</span>
+                                    </div>
+                                </div> <!-- end single popular item -->
+                                <div class="recent-post mb-20">
+                                    <div class="recent-post-thumb">
+                                        <a href="blog-details.html">
+                                            <img src="assets/img/product/product-img2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="recent-post-des">
+                                        <span><a href="blog-details.html">second blog post</a></span>
+                                        <span class="post-date">28.10.2018</span>
+                                    </div>
+                                </div> <!-- end single popular item -->
+                                <div class="recent-post mb-20">
+                                    <div class="recent-post-thumb">
+                                        <a href="blog-details.html">
+                                            <img src="assets/img/product/product-img3.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="recent-post-des">
+                                        <span><a href="blog-details.html">third blog post</a></span>
+                                        <span class="post-date">28.10.2018</span>
+                                    </div>
+                                </div> <!-- end single popular item -->
+                            </div> <!-- single sidebar end -->
+                            <div class="blog-sidebar mb-24">
+                                <h4 class="title mb-30">Tags</h4>
+                                <ul class="blog-tags">
+                                    <li><a href="#">camera</a></li>
+                                    <li><a href="#">computer</a></li>
+                                    <li><a href="#">watch</a></li>
+                                    <li><a href="#">smartphone</a></li>
+                                    <li><a href="#">bag</a></li>
+                                    <li><a href="#">shoes</a></li>
+                                </ul>
+                            </div> <!-- single sidebar end -->
+                        </div>
+                    </div>
+                    <div class="col-lg-9 order-1">
+                        <div class="blog-wrapper-inner">
+                            <div class="row blog-content-wrap">
+                                <!-- start single blog item -->
+                                <div class="col-lg-12">
+                                    <div class="blog-item mb-30">
+                                        <div class="blog-thumb img-full fix">
+                                            <div class="blog-gallery-slider slick-arrow-style_2">
+                                                
+                                                
+                                                
+                                                <div class="blog-single-slide">
+                                                    <img src="{{ vendor.cover_image.url }}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-details">
+                                                <h3 class="blog-heading">{{ vendor.title }}</h3>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="tag-line">
+                                            <h4>tag:</h4>
+                                            <a href="#">dry food</a>,
+                                            <a href="#">wet food</a>,
+                                            <a href="#">reach food</a>,
+                                        </div>
+                                        <div class="blog-sharing text-center mt-34 mt-sm-34">
+                                            <h4>share this post:</h4>
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="comment-section">
+                                        <h3>Vendor</h3>
+                                        <ul>
+                                            <li class="d-flex align-items-center">
+                                                <div class="col-md-3">
+                                                    <div class="vendor-image-3d">
+                                                        <img src="{{ vendor.image.url }}" alt="" class="img-thumbnail">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <h5 class="comment-author">{{ vendor.title }}</h5>
+                                                    <div class="comment-post-date">Since {{ vendor.date|date:"Y" }}</div>
+                                                    <div>
+                                                        <span><strong>Contact:</strong> {{ vendor.contact }}</span><br/>
+                                                        <span><strong>Address:</strong> {{ vendor.address }}</span>
+                                                    </div>
+                                                    <p>{{ vendor.description }}</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    
+                                    
+                                    <!-- comment area start -->
+                                     <!-- product item start -->
+                                     <br/><br/><br/>
+                            <div class="shop-product-wrap grid row">
+                                {% for p in product %}
+                                <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <!-- product single grid item start -->
+                                    <div class="product-item fix mb-30">
+                                        <div class="product-thumb">
+                                            <a href="product-details.html">
+                                                <img src="{{ p.image.url }}" class="img-pri" alt="">
+                                                <img src="{{ p.image.url }}" class="img-sec" alt="">
+                                            </a>
+                                            <div class="product-label">
+                                                <span>-{{ p.get_percentage|floatformat:0 }}%</span>
+                                            </div>
+                                            <div class="product-action-link">
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">{{ p.category.title }}</a></h4>
+                                            <h6><a href="product-details.html">{{ p.title|truncatechars:30 }}</a></h6>
+                                            <div class="pricebox">
+                                                <span class="regular-price">{{ p.price }}</span><br/>
+                                                <span class="old-price"><del>{{ p.old_price }}</del></span>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- product single grid item end -->
+                                   
+                                </div> <!-- product single column end -->
+                                {% endfor %}
+                               
+                            </div>
+                            <!-- product item end -->
+                        </div>
+                        <!-- product view wrapper area end -->
+                                </div>
+                                <!-- end single blog item -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog main wrapper end -->
+
+        <!-- brand area start -->
+        <div class="brand-area pt-34 pt-sm-10 pb-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title mb-30">
+                            <div class="title-icon">
+                                <i class="fa fa-crop"></i>
+                            </div>
+                            <h3>Popular Brand</h3>
+                        </div> <!-- section title end -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="brand-active slick-padding slick-arrow-style">
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br1.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br2.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br3.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br5.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br6.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand area end -->
+
+        
+
+    </div>
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    
+
+{% endblock %}

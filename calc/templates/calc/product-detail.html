@@ -1,0 +1,786 @@
+{% extends 'calc/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <!-- color switcher start -->
+    <div class="color-switcher">
+        <div class="color-switcher-inner">
+            <div class="switcher-icon">
+                <i class="fa fa-cog fa-spin"></i>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Color Schemes</h3>
+                <ul class="nav flex-wrap colors">
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item">
+                <h3>Layout Style</h3>
+                <ul class="nav layout-changer">
+                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Pattern</h3>
+                <ul class="nav flex-wrap bgbody-style bg-pattern">
+                    <li><img src="assets/img/bg-panel/bg-pettern/1.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/2.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/3.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/4.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/5.png" alt="Pettern"></li>
+                    <li><img src="assets/img/bg-panel/bg-pettern/6.png" alt="Pettern"></li>
+                </ul>
+            </div>
+
+            <div class="switcher-panel-item bg">
+                <h3>Background Image</h3>
+                <ul class="nav flex-wrap bgbody-style bg-img">
+                    <li><img src="assets/img/bg-panel/bg-img/01.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/02.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/03.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/04.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/05.jpg" alt="Images"></li>
+                    <li><img src="assets/img/bg-panel/bg-img/06.jpg" alt="Images"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- color switcher end -->
+
+    <div class="wrapper box-layout">
+        
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">product details</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- product details wrapper start -->
+        <div class="product-details-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <!-- product details inner end -->
+                        <div class="product-details-inner">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="product-large-slider mb-20 slick-arrow-style_2">
+                                        <div class="pro-large-img img-zoom" id="img1">
+                                            <img src="{{ product.image.url }}" alt="" />
+                                        </div>
+                                        {% for product in p_image %}
+                                        <div class="pro-large-img img-zoom" id="img2">
+                                            <img src="{{ product.images.url }}" alt=""/>
+                                        </div>
+                                        {% endfor %}
+                                       
+                                    </div>
+                                    <div class="pro-nav slick-padding2 slick-arrow-style_2">
+                                        <div class="pro-nav-thumb"><img src="{{ product.image.url }}" alt="" /></div>
+                                        {% for product in p_image %}
+                                        <div class="pro-nav-thumb"><img src="{{ product.images.url }}" alt="" /></div>
+                                        
+                                        {% endfor %}
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="product-details-des mt-md-34 mt-sm-34">
+                                        <h3><a href="product-details.html">{{ product.title }}</a></h3>
+                                        <div class="ratings">
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <div class="pro-review">
+                                                <span>1 review(s)</span>
+                                            </div>
+                                        </div>
+                                        <div class="customer-rev">
+                                            <a href="#">(1 customer review)</a>
+                                        </div>
+                                        
+                                        <div class="availability mt-10">
+                                            <h5>Availability:</h5>
+                                            <span>{{ product.stock_count }} in stock</span>
+                                        </div>
+
+                                        <div class="product-label">
+                                            <span>-{{ product.get_percentage|floatformat:0}}%</span>
+                                        </div>
+
+
+                                        <div class="pricebox">
+                                            <span class="regular-price">${{ product.price }}</span>
+                                            <br/>
+                                            <span class="old-price"><del>{{ product.old_price }}</del></span>
+                                        </div>
+                                        <p>{{ product.description }}</p>
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <div class="quantity">
+                                                <div class="pro-qty"><input type="text" value="1"></div>
+                                            </div>
+                                            <div class="action_link">
+                                                <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="useful-links mt-20">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i>compare</a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i class="fa fa-heart-o"></i>wishlist</a>
+                                        </div>
+                                        <div class="share-icon mt-20">
+                                            <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
+                                            <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
+                                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
+                                            <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product details inner end -->
+
+                        <!-- product details reviews start -->
+                        <div class="product-details-reviews mt-34">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="product-review-info">
+                                        <ul class="nav review-tab">
+                                            <li>
+                                                <a class="active" data-toggle="tab" href="#tab_one">description</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tab" href="#tab_two">information</a>
+                                            </li>
+                                            <li>
+                                                <a data-toggle="tab" href="#tab_three">reviews({{ reviews.count }})</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content reviews-tab">
+                                            <div class="tab-pane fade show active" id="tab_one">
+                                                <div class="tab-one">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Ipsum metus feugiat sem, quis fermentum turpis eros eget velit. Donec ac tempus ante. Fusce ultricies massa massa. Fusce aliquam, purus eget sagittis vulputate, sapien libero hendrerit est, sed commodo augue nisi non neque.</p>
+                                                    <div class="review-description">
+                                                        <div class="tab-thumb">
+                                                            <img src="assets/img/about/services.jpg" alt="">
+                                                        </div>
+                                                        <div class="tab-des mt-sm-24">
+                                                            <h3>Product Information :</h3>
+                                                            <ul>
+                                                                <li>Donec non est at libero vulputate rutrum.</li>
+                                                                <li>Morbi ornare lectus quis justo gravida semper.</li>
+                                                                <li>Pellentesque aliquet, sem eget laoreet ultrices</li>
+                                                                <li>Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla</li>
+                                                                <li>Donec a neque libero.</li>
+                                                                <li>Pellentesque aliquet, sem eget laoreet ultrices</li>
+                                                                <li>Morbi ornare lectus quis justo gravida semper.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <p>Cras neque metus, consequat et blandit et, luctus a nunc. Etiam gravida vehicula tellus, in imperdiet ligula euismod eget. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam erat mi, rutrum at sollicitudin rhoncus, ultricies posuere erat. Duis convallis, arcu nec aliquam consequat, purus felis vehicula felis, a dapibus enim lorem nec augue. Nunc facilisis sagittis ullamcorper.</p>
+                                                    <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.</p>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab_two">
+                                                <table class="table table-bordered">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>color</td>
+                                                            <td>black, blue, red</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>size</td>
+                                                            <td>L, M, S</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane fade" id="tab_three">
+                                                <form action="#" class="review-form">
+                                                    <div>
+                                                       
+                                                            
+                                                        <h5>{{ product.title }}</h5>
+                                                       
+                                                        <div class="ratings">
+                                                            <span class="good"><i class="fa fa-star"></i></span>
+                                                            <span class="good"><i class="fa fa-star"></i></span>
+                                                            <span class="good"><i class="fa fa-star"></i></span>
+                                                            <span class="good"><i class="fa fa-star"></i></span>
+                                                            <span><i class="fa fa-star"></i></span> 
+                                                            {{ average_rating.rating|floatformat }} out of 5
+                                                        </div>
+                                                        <br/>
+                                                        <br/>
+                                                    </div>
+
+                                                    {% for r in reviews %}
+                                                    <div class="total-reviews">
+                                                        <div class="rev-avatar">
+                                                            <img src="data:image/png;base64,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" alt="">
+                                                        </div>
+                                                        <div class="review-box">
+                                                            <div class="ratings">
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                                <span><i class="fa fa-star"></i></span>
+                                                            </div>
+                                                            <div class="post-author">
+                                                                <p><span>{{ r.user.username|title }}</span> {{ r.date|date:"d M, Y"}}</p>
+                                                            </div>
+                                                            <p>{{ r.review }}</p>
+                                                        </div>
+                                                    </div>
+                                                    {% endfor %}
+                                                    
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <form method="POST" action="{% url 'add-review' % product.id }" id="commentForm">
+                                                                <div>
+                                                                    {{review_form.review }}
+                                                                </div>
+                                                                <div>
+                                                                    {{review_form.rating }}
+                                                                </div>
+                                                            </form>
+                                                            <br/>
+                                                            <div class="buttons">
+                                                                <button class="sqr-btn" type="submit">Continue</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                   
+                                                    
+                                                </form> <!-- end of review-form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- product details reviews end --> 
+
+                        <!-- related products area start -->
+                        <div class="related-products-area mt-34">
+                            {% if products %}
+                            <div class="section-title mb-30">
+                                <div class="title-icon">
+                                    <i class="fa fa-desktop"></i>
+                                </div>
+                                <h3>related products</h3>
+                            </div> <!-- section title end -->
+                            {% endif %}
+                            <!-- featured category start -->
+                            <div class="featured-carousel-active slick-padding slick-arrow-style">
+                                <!-- product single item start -->
+                                {% for p in products %}
+                                <div class="product-item fix">
+                                    <div class="product-thumb">
+                                        <a href="{% url 'product-detail' p.pid %}">
+                                            <img src="{{ p.image.url }}" alt="">
+                                            
+                                        </a>
+                                        <div class="product-label">
+                                            <span>-{{ p.get_percentage|floatformat:0}}%</span>
+                                        </div>
+                                        <div class="product-action-link">
+                                            <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip" data-placement="left" title="Quick view"><i class="fa fa-search"></i></span> </a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h4><a href="{% url 'product-detail' p.pid %}">{{ p.title }}</a></h4>
+                                        <div class="pricebox">
+                                            <span class="regular-price">${{ p.price }}</span>
+                                            <div class="old-price">
+                                                <del>${{ p.old_price }}</del>
+                                            </div>
+                                            <div class="ratings">
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span><i class="fa fa-star"></i></span>
+                                                <div class="pro-review">
+                                                    <span>1 review(s)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                <!-- product single item end -->
+                                
+                            </div>
+                            <!-- featured category end -->
+                        </div>
+                        <!-- related products area end -->
+                    </div>
+
+                    <!-- sidebar start -->
+                    <div class="col-lg-3">
+                        <div class="shop-sidebar-wrap fix mt-md-22 mt-sm-22">
+                            <!-- featured category start -->
+                            <div class="sidebar-widget mb-22">
+                                <div class="section-title-2 d-flex justify-content-between mb-28">
+                                    <h3>featured</h3>
+                                    <div class="category-append"></div>
+                                </div> <!-- section title end -->
+                                <div class="category-carousel-active row" data-row="4">
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img1.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img2.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img3.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img4.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img5.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img6.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">Virtual Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img10.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">simple Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $150.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$180.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                    <div class="col">
+                                        <div class="category-item">
+                                            <div class="category-thumb">
+                                                <a href="product-details.html">
+                                                    <img src="assets/img/product/product-img12.jpg" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="category-content">
+                                                <h4><a href="product-details.html">external Product 01</a></h4>
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        $140.00
+                                                    </div>
+                                                    <div class="old-price">
+                                                        <del>$160.00</del>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings">
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
+                                                    <div class="pro-review">
+                                                        <span>1 review(s)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end single item -->
+                                    </div> <!-- end single item column -->
+                                </div>
+                            </div>
+                            <!-- featured category end -->
+
+                            <!-- manufacturer start -->
+                            <div class="sidebar-widget mb-22">
+                                <div class="sidebar-title mb-10">
+                                    <h3>Manufacturers</h3>
+                                </div>
+                                <div class="sidebar-widget-body">
+                                    <ul>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">calvin klein</a><span>(10)</span></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">diesel</a><span>(12)</span></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">polo</a><span>(20)</span></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Tommy Hilfiger</a><span>(12)</span></li>
+                                        <li><i class="fa fa-angle-right"></i><a href="#">Versace</a><span>(16)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- manufacturer end -->
+
+                            <!-- product tag start -->
+                            <div class="sidebar-widget mb-22">
+                                <div class="sidebar-title mb-20">
+                                    <h3>tag</h3>
+                                </div>
+                                <div class="sidebar-widget-body">
+                                    <div class="product-tag">
+                                        {% for tag in product.tags.all %}
+                                        <a href="{% url 'tags' tag.slug %}"> 
+                                            {{tag.name }}
+                                             </a>
+                                             {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- product tag end -->
+
+                            <!-- sidebar banner start -->
+                            <div class="sidebar-widget mb-22">
+                                <div class="img-container fix img-full mt-30">
+                                    <a href="#"><img src="assets/img/banner/banner_shop.jpg" alt=""></a>
+                                </div>
+                            </div>
+                            <!-- sidebar banner end -->
+                        </div>
+                    </div>
+                    <!-- sidebar end -->
+                </div>
+            </div>
+        </div>
+        <!-- product details wrapper end -->
+
+        <!-- brand area start -->
+        <div class="brand-area pt-28 pb-30 pt-md-14 pt-sm-14">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title mb-30">
+                            <div class="title-icon">
+                                <i class="fa fa-crop"></i>
+                            </div>
+                            <h3>Popular Brand</h3>
+                        </div> <!-- section title end -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="brand-active slick-padding slick-arrow-style">
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br1.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br2.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br3.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br5.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br6.png" alt=""></a>
+                            </div>
+                            <div class="brand-item text-center">
+                                <a href="#"><img src="assets/img/brand/br4.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- brand area end -->
+
+       
+    </div>
+
+    <!-- Quick view modal start -->
+    <div class="modal" id="quick_view">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- product details inner end -->
+                    <div class="product-details-inner">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="product-large-slider slick-arrow-style_2 mb-20">
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-details-img1.jpg" alt="" />
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-details-img2.jpg" alt=""/>
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-details-img3.jpg" alt=""/>
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-details-img4.jpg" alt=""/>
+                                    </div>
+                                    <div class="pro-large-img">
+                                        <img src="assets/img/product/product-details-img5.jpg" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="pro-nav slick-padding2 slick-arrow-style_2">
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img1.jpg" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img2.jpg" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img3.jpg" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img4.jpg" alt="" /></div>
+                                    <div class="pro-nav-thumb"><img src="assets/img/product/product-details-img5.jpg" alt="" /></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="product-details-des mt-md-34 mt-sm-34">
+                                    <h3><a href="product-details.html">external product 12</a></h3>
+                                    <div class="ratings">
+                                        <span class="good"><i class="fa fa-star"></i></span>
+                                        <span class="good"><i class="fa fa-star"></i></span>
+                                        <span class="good"><i class="fa fa-star"></i></span>
+                                        <span class="good"><i class="fa fa-star"></i></span>
+                                        <span><i class="fa fa-star"></i></span>
+                                        <div class="pro-review">
+                                            <span>1 review(s)</span>
+                                        </div>
+                                    </div>
+                                    <div class="availability mt-10">
+                                        <h5>Availability:</h5>
+                                        <span>1 in stock</span>
+                                    </div>
+                                    <div class="pricebox">
+                                        <span class="regular-price">$160.00</span>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
+                                    Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p>
+                                    <div class="quantity-cart-box d-flex align-items-center mt-20">
+                                        <div class="quantity">
+                                            <div class="pro-qty"><input type="text" value="1"></div>
+                                        </div>
+                                        <div class="action_link">
+                                            <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- product details inner end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quick view modal end -->
+
+    <!-- Scroll to top start -->
+    <div class="scroll-top not-visible">
+        <i class="fa fa-angle-up"></i>
+    </div>
+    <!-- Scroll to Top End -->
+
+   
+{% endblock %}
